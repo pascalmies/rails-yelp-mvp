@@ -1,0 +1,19 @@
+<div class="container">
+<h1> <%= @restaurant.name %> </h1>
+<ul class="restaurant-details no-bullets">
+  <li> <%= @restaurant.category %></li>
+  <li> <%= @restaurant.phone_number %></li>
+  <li> <%= @restaurant.address %></li>
+</ul>
+
+
+
+<ul class="no-bullets space">
+<% @restaurant.reviews.each do |review| %>
+ <li class="rating"><%= review.content %> "RATING:" <%= review.rating %></li>
+<% end %>
+</ul>
+<%= link_to "Add a review", new_restaurant_review_path(@restaurant.id), class: "btn btn-primary" %>
+
+<%= link_to "Back to list", restaurants_path, class: "btn btn-success" %>
+</div>
